@@ -19,11 +19,10 @@ jobs:
       - name: Checkout du code
         uses: actions/checkout@v4
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-
-      - name: Upload site
+      - name: Upload contenu HTML
         uses: actions/upload-pages-artifact@v3
+        with:
+          path: .  
 
       - name: Déploiement GitHub Pages
         uses: actions/deploy-pages@v4
