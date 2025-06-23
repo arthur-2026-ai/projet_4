@@ -1,0 +1,29 @@
+name: Déploiement GitHub Pages dune page html
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - index.html
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Checkout du code
+        uses: actions/checkout@v4
+
+      - name: Configurer GitHub Pages
+        uses: actions/configure-pages@v4
+
+      - name: Déployer sur GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+
+      - name: Lancer la publication
+        uses: actions/deploy-pages@v4
