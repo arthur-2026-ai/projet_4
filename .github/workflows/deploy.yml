@@ -1,6 +1,6 @@
 name: Déploiement GitHub Pages
 
-run-name: ${{ github.actor }} déploie son site avec GitHub Actions 🚀
+run-name: ${{ github.actor }} déploie son site with GitHub Actions 🚀
 
 on:
   push:
@@ -19,24 +19,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Cloner le dépôt
+      - name: 📥 Checkout
         uses: actions/checkout@v4
 
-      - name: ⚙️ Configurer GitHub Pages
+      - name: ⚙️ Configurer Pages
         uses: actions/configure-pages@v4
 
-      - name: ✅ Forcer l'activation de Pages via l'API
-        run: |
-          gh api -X PUT /repos/${{ github.repository }}/pages \
-            -f source.branch=main \
-            -f source.path=/
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: 📤 Préparer les fichiers à déployer
+      - name: 📤 Préparer fichiers
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
 
-      - name: 🚀 Déployer sur GitHub Pages
+      - name: 🚀 Déployer
         uses: actions/deploy-pages@v4
