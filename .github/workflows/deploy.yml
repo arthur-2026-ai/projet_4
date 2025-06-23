@@ -28,8 +28,8 @@ jobs:
       - name: ✅ Forcer l'activation de Pages via l'API
         run: |
           gh api -X PUT /repos/${{ github.repository }}/pages \
-            -f source.branch='main' \
-            -f source.path='/'
+            -f source.branch=main \
+            -f source.path=/
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
