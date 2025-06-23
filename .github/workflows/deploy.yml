@@ -19,17 +19,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Récupération du code
+      - name: 📥 Cloner le dépôt
         uses: actions/checkout@v4
 
-      - name: ⚙️ Configuration de GitHub Pages
+      - name: ⚙️ Configurer GitHub Pages
         uses: actions/configure-pages@v4
 
       - name: ✅ Forcer l'activation de Pages via l'API
-        run: gh api \
-          -X PUT /repos/${{ github.repository }}/pages \
-          -f source.branch='main' \
-          -f source.path='/'
+        run: |
+          gh api -X PUT /repos/${{ github.repository }}/pages \
+            -f source.branch='main' \
+            -f source.path='/'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
