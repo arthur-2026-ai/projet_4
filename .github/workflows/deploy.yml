@@ -1,6 +1,6 @@
 name: Déploiement GitHub Pages
 
-run-name: ${{ github.actor }} is learning GitHub Actions
+run-name: ${{ github.actor }} déploie son site avec GitHub Actions 🚀
 
 on:
   push:
@@ -19,13 +19,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout du code
+      - name: 📥 Récupération du code
         uses: actions/checkout@v4
 
-      - name: Configurer Pages
+      - name: ⚙️ Configuration de GitHub Pages
         uses: actions/configure-pages@v4
 
-      - name: Forcer l'activation de GitHub Pages via l'API
+      - name: ✅ Forcer l'activation de Pages via l'API
         run: gh api \
           -X PUT /repos/${{ github.repository }}/pages \
           -f source.branch='main' \
@@ -33,10 +33,10 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Uploader les fichiers
+      - name: 📤 Préparer les fichiers à déployer
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
 
-      - name: Déploiement GitHub Pages
+      - name: 🚀 Déployer sur GitHub Pages
         uses: actions/deploy-pages@v4
