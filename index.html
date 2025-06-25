@@ -1,12 +1,91 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Bonjour GitHub Actions !</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fotso DevOps | Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <h1>🚀 Bonjour, GitHub Actions !</h1>
-  <p>Site déployé automatiquement avec GitHub Pages</p> 
-  ajoutons les nouvelle fonctionnaliter
+<body class="bg-gray-900 text-white font-sans">
+  <!-- Header -->
+  <header class="bg-gray-800 py-6 px-4 shadow-lg">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-blue-400">Fotso DevOps</h1>
+      <nav class="space-x-6">
+        <a href="#services" class="hover:text-blue-400">Services</a>
+        <a href="#projects" class="hover:text-blue-400">Projets</a>
+        <a href="#contact" class="hover:text-blue-400">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="text-center py-20 px-4 bg-gradient-to-b from-gray-900 to-gray-800">
+    <h2 class="text-4xl sm:text-5xl font-bold mb-4">DevOps, Réseau & Cybersécurité</h2>
+    <p class="text-lg text-gray-300 mb-6 max-w-xl mx-auto">
+      Je construis des systèmes robustes, sécurisés et automatisés pour booster vos projets tech.
+    </p>
+    <a href="#contact" class="bg-blue-500 hover:bg-blue-600 text-white py-3 px-6 rounded-full font-semibold transition">Travaillons ensemble</a>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-16 px-4 max-w-6xl mx-auto">
+    <h3 class="text-3xl font-bold mb-10 text-center">Mes Services</h3>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-gray-800 rounded-2xl p-6 shadow-xl">
+        <h4 class="text-xl font-semibold mb-2">Automatisation DevOps</h4>
+        <p class="text-gray-300">CI/CD, Docker, GitLab, scripts Linux pour booster la productivité.</p>
+      </div>
+      <div class="bg-gray-800 rounded-2xl p-6 shadow-xl">
+        <h4 class="text-xl font-semibold mb-2">Sécurité Réseau</h4>
+        <p class="text-gray-300">Tests d'intrusion, analyse de vulnérabilités, sécurisation d'infrastructures.</p>
+      </div>
+      <div class="bg-gray-800 rounded-2xl p-6 shadow-xl">
+        <h4 class="text-xl font-semibold mb-2">Formations & Accompagnement</h4>
+        <p class="text-gray-300">Mentorat tech, accompagnement freelance, contenu éducatif sur TikTok.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-16 px-4 bg-gray-950">
+    <h3 class="text-3xl font-bold mb-10 text-center">Projets en vedette</h3>
+    <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+      <div class="bg-gray-800 rounded-xl p-6">
+        <h4 class="text-xl font-semibold">OCWebServer</h4>
+        <p class="text-gray-300">Serveur web en Kotlin avec Ktor, conçu pour apprendre le backend moderne.</p>
+      </div>
+      <div class="bg-gray-800 rounded-xl p-6">
+        <h4 class="text-xl font-semibold">Soleil Royal</h4>
+        <p class="text-gray-300">Application de gestion d’hôtel en Kotlin : réservations, coûts, disponibilité.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 px-4 text-center">
+    <h3 class="text-3xl font-bold mb-4">Discutons de votre projet</h3>
+    <p class="text-gray-300 mb-6">Disponible pour missions freelance, collaborations ou formations personnalisées.</p>
+    <form action="https://formspree.io/f/your_form_id" method="POST" class="max-w-xl mx-auto text-left bg-gray-800 p-6 rounded-xl">
+      <div class="mb-4">
+        <label for="name" class="block mb-2 font-semibold">Nom</label>
+        <input type="text" id="name" name="name" required class="w-full px-4 py-2 rounded bg-gray-700 border border-gray-600 text-white" />
+      </div>
+      <div class="mb-4">
+        <label for="email" class="block mb-2 font-semibold">Email</label>
+        <input type="email" id="email" name="email" required class="w-full px-4 py-2 rounded bg-gray-700 border border-gray-600 text-white" />
+      </div>
+      <div class="mb-4">
+        <label for="message" class="block mb-2 font-semibold">Message</label>
+        <textarea id="message" name="message" rows="4" required class="w-full px-4 py-2 rounded bg-gray-700 border border-gray-600 text-white"></textarea>
+      </div>
+      <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded font-semibold">Envoyer</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-center text-gray-400 py-6">
+    &copy; 2025 Claude DevOps. Tous droits réservés.
+  </footer>
 </body>
 </html>

@@ -1,6 +1,4 @@
-name: Déploiement GitHub Pages
-
-run-name: ${{ github.actor }} déploie son site with GitHub Actions 🚀
+name: Déploiement vers EC2
 
 on:
   push:
@@ -9,26 +7,22 @@ on:
     paths:
       - index.html
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
 jobs:
   deploy:
+    name: Déploiement sur ec2-dev
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Checkout
+      - name: 📥 Cloner le dépôt
         uses: actions/checkout@v4
 
-      - name: ⚙️ Configurer Pages
-        uses: actions/configure-pages@v4
+      - name: 🔐 Ajouter la clé SSH privée
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan ec2-dev >> ~/.ssh/known_hosts
 
-      - name: 📤 Préparer fichiers
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: .
-
-      - name: 🚀 Déployer
-        uses: actions/deploy-pages@v4
+      - name: 🚀 Déployer index.html sur le serveur EC2
+        run: |
+          scp index.html ubuntu@ec2-dev:/var/www/html/index.html
