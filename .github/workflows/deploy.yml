@@ -25,4 +25,4 @@ jobs:
 
       - name: 🚀 Déployer index.html sur le serveur EC2
         run: |
-          scp index.html ubuntu@ec2-dev:/var/www/html/index.html
+          scp index.html ubuntu@16.171.169.114:/var/www/html/index.html
