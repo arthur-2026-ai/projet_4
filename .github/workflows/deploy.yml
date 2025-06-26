@@ -4,9 +4,7 @@ on:
   push:
     branches:
       - main
-    paths:
-      - index.html
-      - login.html
+  
 
 jobs:
   deploy:
@@ -26,4 +24,4 @@ jobs:
 
       - name: 🚀 Déployer index.html sur le serveur EC2
         run: |
-          scp index.html ubuntu@16.171.169.114:/var/www/html/index.html
+          rsync -avz -e "ssh -i claude-key.pem" ./ ubuntu@16.171.169.114:/var/www/html/
