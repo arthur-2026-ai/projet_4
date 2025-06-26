@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - index.html
+      - login.html
 
 jobs:
   deploy:
